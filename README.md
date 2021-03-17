@@ -136,7 +136,8 @@ The JSON file is a dictionary that maps vehicle [`MAV_TYPE`](https://mavlink.io/
         "21": "QRTL",
         "22": "QAUTOTUNE",
         "23": "QACRO",
-        "24": "THERMAL"
+        "24": "THERMAL",
+        "25": "HITTARGET"
     }
 }
 ```
