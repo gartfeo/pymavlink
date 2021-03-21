@@ -1151,6 +1151,16 @@
         <param index="6">Empty</param>
         <param index="7">Empty</param>
       </entry>
+      <entry name="MAV_CMD_NAV_SET_PITCH" value="200213">
+        <description>Sets the plane a desired turn angle</description>
+        <param index="1">pitch angle to adjust nose by in centidegress</param>
+        <param index="2">Empty</param>
+        <param index="3">Empty</param>
+        <param index="4">Empty</param>
+        <param index="5">Empty</param>
+        <param index="6">Empty</param>
+        <param index="7">Empty</param>
+      </entry>
       <entry value="220" name="MAV_CMD_DO_MOUNT_CONTROL_QUAT">
         <description>Mission command to control a camera or antenna mount, using a quaternion as reference.</description>
         <param index="1">q1 - quaternion param #1, w (1 in null-rotation)</param>
