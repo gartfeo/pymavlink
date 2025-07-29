@@ -313,14 +313,16 @@ class MAVLink_message(object):
         incompat_flags = 0
         if mav.signing.sign_outgoing:
             incompat_flags |= MAVLINK_IFLAG_SIGNED
+        srcSystem = self._header.srcSystem or mav.srcSystem
+        srcComponent = self._header.srcComponent or mav.srcComponent
         self._header = MAVLink_header(
             self._header.msgId,
             incompat_flags=incompat_flags,
             compat_flags=0,
             mlen=len(self._payload),
             seq=mav.seq,
-            srcSystem=mav.srcSystem,
-            srcComponent=mav.srcComponent,
+            srcSystem=srcSystem,
+            srcComponent=srcComponent,
         )
         self._msgbuf = bytearray(self._header.pack(force_mavlink1=force_mavlink1))
         self._msgbuf += self._payload
