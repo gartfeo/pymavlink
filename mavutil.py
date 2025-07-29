@@ -13,7 +13,7 @@ import copy
 import json
 import re
 import platform
-import Queue
+import queue
 from pymavlink import mavexpression
 
 # We want to re-export x25crc here
