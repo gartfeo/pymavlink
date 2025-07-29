@@ -2846,8 +2846,8 @@ class mavsource(mavfile):
     '''state, and a stream of messages for a single vehicle or component'''
     def __init__(self, upstream_mavfile, system_id, component_id):
         mavfile.__init__(self, None, 'vehicle')
-        self.from_source = Queue.Queue()
-        self.to_source = Queue.Queue()
+        self.from_source = queue.Queue()
+        self.to_source = queue.Queue()
         # self.target_system and self.target_component change based on
         #        what packets are received.  self.system_id and
         #        self.component_id should always be used in mavsource!
@@ -2901,7 +2901,7 @@ class mavsource(mavfile):
         '''called by connection to fetch messages for it to send on'''
         try:
             return self.from_source.get(block=False)
-        except Queue.Empty:
+        except queue.Empty:
             return None
 
     def set_mode(self, mode):
