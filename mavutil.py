@@ -7,13 +7,13 @@ Released under GNU LGPL version 3 or later
 '''
 
 import socket, math, struct, time, os, fnmatch, array, sys, errno
-from queue import Queue
 
 import select
 import copy
 import json
 import re
 import platform
+import Queue
 from pymavlink import mavexpression
 
 # We want to re-export x25crc here
