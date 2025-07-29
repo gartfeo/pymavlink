@@ -2855,7 +2855,6 @@ class mavsource(mavfile):
         self.component_id = component_id
         self.upstream_mavfile = upstream_mavfile
         self.mav = self.upstream_mavfile.mav
-        self.messages = {}
         self.upstream_mavfile.listener_add(system_id, component_id, self)
 
     def close(self):
