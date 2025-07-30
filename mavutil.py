@@ -2950,8 +2950,19 @@ class mavsource(mavfile):
         else:
             self.mav.waypoint_clear_all_send(self.system_id, self.component_id)
 
+    def waypoint_set_current_send(self, seq):
+        if self.mavlink10():
+            self.mav.mission_set_current_send(self.system_id, self.component_id, seq)
+        else:
+            self.mav.waypoint_set_current_send(self.system_id, self.component_id, seq)
+            
+    def waypoint_request_list_send(self):
+        if self.mavlink10():
+            self.mav.mission_request_list_send(self.system_id, self.component_id)
+        else:
+            self.mav.waypoint_request_list_send(self.system_id, self.component_id)
+            
     def send_wp(self, wp):
-        '''send a wp message to a target system'''
         wp.target_system = self.system_id
         wp.target_component = self.component_id
         self.mav.send(wp)
@@ -2966,6 +2977,12 @@ class mavsource(mavfile):
         self.mav.rc_channels_override_send(self.system_id,
                                            self.component_id,
                                            *overrides)
+
+    def arducopter_arm(self):
+        raise NotImplementedError("Arming is not implemented in mavsource")
+    
+    def arducopter_disarm(self):
+        raise NotImplementedError("Disarming is not implemented in mavsource")
 
 if __name__ == '__main__':
         serial_list = auto_detect_serial(preferred_list=['*FTDI*',"*Arduino_Mega_2560*", "*3D_Robotics*", "*USB_to_UART*", '*PX4*', '*FMU*'])
